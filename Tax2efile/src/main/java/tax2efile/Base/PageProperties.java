@@ -30,17 +30,4 @@ public class PageProperties {
 		js = (JavascriptExecutor)driver;
 	}
 
-	public void selectRadioButton(List<WebElement> elements, String attribute, String val) {
-
-		for (WebElement element : elements) {
-
-			if (element.getDomAttribute(attribute).equalsIgnoreCase(val)) {
-
-				element.click();
-			}
-
-		}
-
-	}
-
 }

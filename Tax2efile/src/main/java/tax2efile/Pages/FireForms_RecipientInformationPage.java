@@ -1,5 +1,7 @@
 package tax2efile.Pages;
 
+import java.util.List;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -14,7 +16,7 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 
 	}
 
-	// Recipient Information Block
+	//************************************************************* Recipient Information Block ***********************************************************************************
 	@FindBy(id = "EIN")
 	private WebElement radio_EIN;
 
@@ -42,9 +44,9 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 	@FindBy(id = "txtCnfrmRcpntEmail")
 	private WebElement confirmEmailID;
 
-	// Recipient Address Information Block
+	//****************************************************** Recipient Address Information Block **********************************************************************************
 
-	@FindBy(xpath = "//h4[contains(text(),'Recipient Address Information')]")
+	@FindBy(xpath = "//label[text()='Does the payee have a foreign address?']")
 	private WebElement RecipientAddressInfoLabelName;
 
 	@FindBy(id = "chkAddress")
@@ -70,8 +72,9 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 
 	@FindBy(id = "txtFrZipCode")
 	private WebElement outZipcode;
-
-	// Filer INformation 1099 - OID
+	
+	
+	//************************************************************** Common Locators on Recipient Information Page *********************************************************************
 	@FindBy(xpath = "//h4[contains(text(),'Filer Information')]")
 	private WebElement FilerInfoLabelName;
 
@@ -80,6 +83,11 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 
 	@FindBy(id = "txtOfficeCode")
 	private WebElement officeCode;
+	
+	@FindBy(id = "btnSave")
+	private WebElement saveButton;
+	
+	//************************************************************** Filer Information 1099 - OID *********************************************************************************
 
 	@FindBy(id = "txtOriginalIssueDiscount")
 	private WebElement Original_Issue_Discount_Box1;
@@ -137,19 +145,48 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 
 	@FindBy(id = "txtScndStateTaxWithheld")
 	private WebElement StateTax_Withheld_Box14A;
-
-	@FindBy(id = "btnSave")
-	private WebElement saveButton;
+	
+	
+	//**************************************************************  Filer Information 1099 - A *********************************************************************************
+	
+	@FindBy (id = "txtAOrigDate")
+	private WebElement Date_of_lenders_acquisition_or_knowledge_of_abandonment_Box1;
+	
+	@FindBy (id = "txtBalanceofOS")
+	private WebElement Balance_of_Principal_Outstanding_Box2;
+	
+	@FindBy (xpath = "//select[@data-handler='selectMonth']")
+	private WebElement Select_month_Form1099A_Box1;
+	
+	@FindBy (xpath = "//select[@data-handler='selectYear']")
+	private WebElement Select_year_Form1099A_Box1;
+	
+	@FindBy (xpath = "//table[@class='ui-datepicker-calendar']/tbody/tr/td/a")
+	private List<WebElement> pick_date_Form1099A_Box1;
+	
+	@FindBy (id = "txtFairMarketValueOfProperty")
+	private WebElement Fair_Market_Value_of_Property_Box4;
+	
+	@FindBy (id = "ColumnsFormDetails_5__BoolValue")
+	private WebElement Check_if_the_borrower_was_personally_liable_for_repayment_of_the_debt_Box5;
+	
+	@FindBy (id = "txtDescription")
+	private WebElement Description_of_Property_Box6;
+	
+	
+	//***************************************************************************************************************************************************************************
 
 	static String fname;
 
 	static String lname;
+	
+	static String bname;
 
 	String[] splittedName;
 	
 	static String checkemailisGiven;
 
-	public void RecipientInformation(String identifyMethod, String taxID, String recipientName, String email,
+	public void RecipientInformation(String identifyMethod, String form, String taxID, String recipientName, String email,
 			String confirmEmail) throws InterruptedException {
 		
 		checkemailisGiven = email;
@@ -157,12 +194,20 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 		switch (identifyMethod) {
 
 		case "EIN" -> {
-
+			
+			bname = recipientName;
+			
 			radio_EIN.click();
 			EIN_or_SSN_Field.sendKeys(taxID);
-			business_or_first_Name.sendKeys(recipientName);
-			secondTIN_chck.click();
-			FATCA_chck.click();
+			business_or_first_Name.sendKeys(bname);
+			
+			if (form == "OID") {
+				
+				secondTIN_chck.click();
+				FATCA_chck.click();
+				
+			}
+			
 			emailID.sendKeys(email);
 			confirmEmailID.sendKeys(confirmEmail);
 
@@ -204,7 +249,8 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 			String _country, String _zipcode) throws InterruptedException {
 
 		// Scroll Down to Label Name
-		js.executeScript("arguments[0].scrollIntoView(true);", RecipientAddressInfoLabelName);
+		//js.executeScript("arguments[0].scrollIntoView(true);", RecipientAddressInfoLabelName);
+		js.executeScript("arguments[0].scrollIntoView(true);", emailID);
 
 		switch (addType) {
 
@@ -280,6 +326,45 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 
 		saveButton.click();
 
+	}
+	
+	
+	public void Form_1099_A_FilerInformation(String _accountNo, String officecode, String _year, String _month, String _date, String _box2, String _box4, String _box6) {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(officecode);
+		
+		Date_of_lenders_acquisition_or_knowledge_of_abandonment_Box1.click();
+		
+		dropdown = new Select(Select_year_Form1099A_Box1);
+		dropdown.selectByVisibleText(_year);
+		
+		dropdown = new Select(Select_month_Form1099A_Box1);
+		dropdown.selectByVisibleText(_month);
+		
+		for (WebElement date : pick_date_Form1099A_Box1) {
+			
+			if (date.getText().equalsIgnoreCase(_date)) {
+				
+				date.click();
+				break;
+			}
+			
+		}
+		
+		Balance_of_Principal_Outstanding_Box2.sendKeys(_box2);
+		
+		Fair_Market_Value_of_Property_Box4.sendKeys(_box4);
+		
+		Check_if_the_borrower_was_personally_liable_for_repayment_of_the_debt_Box5.click();
+		
+		Description_of_Property_Box6.sendKeys(_box6);
+		
+		saveButton.click();
+		
 	}
 
 }

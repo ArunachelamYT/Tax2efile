@@ -1,16 +1,17 @@
 package tax2efile.Pages;
-import tax2efile.Base.PageProperties;
 
+import tax2efile.Base.PageProperties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+public class LoginPage extends PageProperties {
 
-public class LoginPage extends PageProperties{
+	public LoginPage(WebDriver Driver) {
+		super(Driver);
+	}
 
-	public LoginPage(WebDriver Driver) { super(Driver);}
-	
 	@FindBy(id = "LoginEmail")
 	private WebElement username;
 
@@ -25,9 +26,9 @@ public class LoginPage extends PageProperties{
 
 	@FindBy(xpath = "(//a[contains(@href,'https://testaccount.tax2efile.com/Account/Registration/')])[2]")
 	private WebElement registerButton;
-	
+
 	public DashboardPage FillUserCredentials(String name, String pass) {
-		
+
 		wait.until(ExpectedConditions.visibilityOf(username)).sendKeys(name);
 		password.sendKeys(pass);
 		loginbutton.click();

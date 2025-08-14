@@ -155,6 +155,9 @@ public class FilingFeePage extends PageProperties {
 
 	@FindBy(xpath = "//p[contains(text(),'Discount Applied ')]")
 	private WebElement discountAppiled_label;
+	
+	@FindBy(xpath = "//p[text()='CONGRATULATIONS!']")
+	private WebElement confirmation_Label;
 
 	public FilingFeePage PMSDetails() {
 
@@ -258,6 +261,12 @@ public class FilingFeePage extends PageProperties {
 		payNowButton.click();
 		
 		return new OrderConfirmationPage(driver);
+	}
+
+	public void ContinueWithoutPayment() {
+		
+		wait.until(ExpectedConditions.visibilityOf(confirmation_Label)).isDisplayed();
+		
 	}
 
 }

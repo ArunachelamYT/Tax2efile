@@ -1,25 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-01T12:08:10 IST" name="Default suite" finished-at="2025-08-01T12:10:52 IST" duration-ms="162165">
+  <suite started-at="2025-08-14T17:22:30 IST" name="Suite" finished-at="2025-08-14T17:27:40 IST" duration-ms="310671">
     <groups>
     </groups>
-    <test started-at="2025-08-01T12:08:10 IST" name="Default test" finished-at="2025-08-01T12:10:52 IST" duration-ms="162165">
-      <class name="tax2efile.Testscripts.LoginPageTest">
-        <test-method is-config="true" signature="SetupBrowser()[pri:0, instance:tax2efile.Testscripts.LoginPageTest@3febb011]" started-at="2025-08-01T12:08:10 IST" name="SetupBrowser" finished-at="2025-08-01T12:08:13 IST" duration-ms="2706" status="PASS">
+    <test started-at="2025-08-14T17:22:30 IST" name="Run109910998Forms" finished-at="2025-08-14T17:27:40 IST" duration-ms="310671">
+      <class name="tax2efile.Testscripts.FireForms_1099_1098">
+        <test-method is-config="true" signature="SetupBrowser(java.lang.String)[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@158d2680]" started-at="2025-08-14T17:22:30 IST" name="SetupBrowser" finished-at="2025-08-14T17:22:37 IST" duration-ms="6966" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[FilingFee]]>
+              </value>
+            </param>
+          </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetupBrowser -->
-        <test-method signature="LoginFlowTest()[pri:0, instance:tax2efile.Testscripts.LoginPageTest@3febb011]" started-at="2025-08-01T12:08:13 IST" name="LoginFlowTest" finished-at="2025-08-01T12:10:52 IST" duration-ms="159130" status="PASS">
+        <test-method signature="Form_1099A()[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@158d2680]" started-at="2025-08-14T17:22:37 IST" name="Form_1099A" finished-at="2025-08-14T17:25:06 IST" duration-ms="149303" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginFlowTest -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:tax2efile.Testscripts.LoginPageTest@3febb011]" started-at="2025-08-01T12:10:52 IST" name="TearDown" finished-at="2025-08-01T12:10:52 IST" duration-ms="295" status="PASS">
+        </test-method> <!-- Form_1099A -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@158d2680]" started-at="2025-08-14T17:25:06 IST" name="TearDown" finished-at="2025-08-14T17:25:06 IST" duration-ms="285" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
-      </class> <!-- tax2efile.Testscripts.LoginPageTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+        <test-method is-config="true" signature="SetupBrowser(java.lang.String)[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@158d2680]" started-at="2025-08-14T17:25:06 IST" name="SetupBrowser" finished-at="2025-08-14T17:25:29 IST" duration-ms="22323" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[FilingFee]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SetupBrowser -->
+        <test-method signature="Form_1099OID()[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@158d2680]" started-at="2025-08-14T17:25:29 IST" name="Form_1099OID" finished-at="2025-08-14T17:27:40 IST" duration-ms="131521" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Form_1099OID -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@158d2680]" started-at="2025-08-14T17:27:40 IST" name="TearDown" finished-at="2025-08-14T17:27:40 IST" duration-ms="236" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TearDown -->
+      </class> <!-- tax2efile.Testscripts.FireForms_1099_1098 -->
+    </test> <!-- Run109910998Forms -->
+  </suite> <!-- Suite -->
 </testng-results>

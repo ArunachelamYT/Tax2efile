@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="tax2efile.Testscripts.LoginPageTest">
+      <class name="tax2efile.Testscripts.FireForms_1099_1098">
         <methods>
           <include name="TearDown"/>
           <include name="SetupBrowser"/>
-          <include name="LoginFlowTest"/>
+          <include name="Form_1099OID"/>
         </methods>
-      </class> <!-- tax2efile.Testscripts.LoginPageTest -->
+      </class> <!-- tax2efile.Testscripts.FireForms_1099_1098 -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

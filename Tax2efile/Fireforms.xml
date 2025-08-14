@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+	
+	<parameter name="runLevel" value="FilingFee" />
+	
+	<test thread-count="5" name="Run109910998Forms">
+		<classes>
+			<class name="tax2efile.Testscripts.FireForms_1099_1098" />
+		</classes>
+	</test> <!--
+	Test -->
+
+</suite> <!--
+Suite -->

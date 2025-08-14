@@ -10,7 +10,10 @@ public class DriverFactory {
 	public static ThreadLocal<WebDriver> driver =  new ThreadLocal<WebDriver>();
 	
 	public static WebDriver getDriver(String browser) {
+		
 		WebDriver dr;
+		
+		String url = "https://testaccount.tax2efile.com/Account/Login/?form=Tax2efile#!";
 		
 		if(driver.get() == null) {
 			
@@ -20,24 +23,26 @@ public class DriverFactory {
 				dr = new ChromeDriver(); // Initialize driver if not already done
 				dr.manage().window().maximize();
 				driver.set(dr);
+				driver.get().get(url);
 				break;
 				
 			case "Edge":
 				dr = new EdgeDriver(); // Initialize driver if not already done
 				dr.manage().window().maximize();
 				driver.set(dr);
+				driver.get().get(url);
 				break;
 				
 			case "Firefox":
 				dr = new FirefoxDriver(); // Initialize driver if not already done
 				dr.manage().window().maximize();
 				driver.set(dr);
+				driver.get().get(url);
 				break;
 				
 			default:
 				throw new IllegalArgumentException("Unexpected Browser: " + browser);
 			}
-			
 			
 		}
 		

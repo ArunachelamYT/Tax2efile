@@ -28,11 +28,9 @@ public class FireForms_RecipientListPage extends PageProperties{
 	
 	public FireForms_RecipientListPage AddRecipient() {
 		
-		
 		addRecipientBtn.click();
 		
-		return this;
-		
+		return this;	
 	}
 
 
@@ -40,6 +38,7 @@ public class FireForms_RecipientListPage extends PageProperties{
 		
 		String fname = FireForms_RecipientInformationPage.fname;
 		String lname = FireForms_RecipientInformationPage.lname;
+		String bname = FireForms_RecipientInformationPage.bname;
 		
 		List<WebElement> recipientNameList;
 		List<WebElement> Select_Recipient_Checkbox;
@@ -64,6 +63,15 @@ public class FireForms_RecipientListPage extends PageProperties{
 					Select_Recipient_Checkbox.get(i).click();
 					foundrecipientName = true;
 					break;
+				}
+				else if(trimmedText.contains(bname)) {
+					recipientNameMatched = 1;
+					Select_Recipient_Checkbox = driver.findElements(By.xpath(
+							"//table[@id='myTable'] //tbody //tr[@style='display: table-row;']/td[1]/input[@id='selectedRecipients']"));
+					Select_Recipient_Checkbox.get(i).click();
+					foundrecipientName = true;
+					break;
+					
 				}
 			}
 

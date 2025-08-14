@@ -73,6 +73,9 @@ public class FireForms_PayerInformationPage extends PageProperties {
 
 	// lname
 	static String lname;
+	
+	//business Name
+	static String businessName;
 
 	// Payer Information Block
 	public void ProvidePayerInformation(String businessType, String _ProfileName, String ssn) {
@@ -103,11 +106,14 @@ public class FireForms_PayerInformationPage extends PageProperties {
 
 		case "Corporation", "Sole Proprietor", "Partnership", "Trust and Fiduciaries", "Government Entity",
 				"Exempt Organization", "LLC" -> {
-
+					
+			
+			businessName = _ProfileName;
+			
 			dropdown = new Select(BusinessType);
 			dropdown.selectByContainsVisibleText(businessType);
 
-			BusinessName.sendKeys(_ProfileName);
+			BusinessName.sendKeys(businessName);
 
 			SSN.sendKeys(ssn);
 

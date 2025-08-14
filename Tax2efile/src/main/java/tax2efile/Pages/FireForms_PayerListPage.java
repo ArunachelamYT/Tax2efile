@@ -30,6 +30,7 @@ public class FireForms_PayerListPage extends PageProperties {
 
 		String fname = FireForms_PayerInformationPage.fname;
 		String lname = FireForms_PayerInformationPage.lname;
+		String bname = FireForms_PayerInformationPage.businessName;
 
 		// Check the Profile Name in list: [Arunachela eswaran S] and click Start
 		// E-Filing
@@ -56,6 +57,16 @@ public class FireForms_PayerListPage extends PageProperties {
 					Start_Filling.get(i).click();
 					foundprofileName = true;
 					break;
+				} 
+				else if (trimmedText.contains(bname)) {
+
+					profileNameMatched = 1;
+					Start_Filling = driver.findElements(By.xpath(
+							"//table[@id='myTable'] //tbody //tr[@style='display: table-row;']/td[1]/a[@id='btnstartFiling']"));
+					Start_Filling.get(i).click();
+					foundprofileName = true;
+					break;
+
 				}
 			}
 
