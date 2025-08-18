@@ -84,6 +84,18 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 	@FindBy(id = "txtOfficeCode")
 	private WebElement officeCode;
 	
+	@FindBy(id = "txtFederalIncomeTaxWithheld")
+	private WebElement Federal_Income_Tax_Withheld_Box4;
+	
+	@FindBy (xpath = "//select[@data-handler='selectMonth']")
+	private WebElement Select_month;
+	
+	@FindBy (xpath = "//select[@data-handler='selectYear']")
+	private WebElement Select_year;
+	
+	@FindBy (xpath = "//table[@class='ui-datepicker-calendar']/tbody/tr/td/a")
+	private List<WebElement> pick_date;
+	
 	@FindBy(id = "btnSave")
 	private WebElement saveButton;
 	
@@ -97,9 +109,6 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 
 	@FindBy(id = "txtEarlyWithdrawalPenalty")
 	private WebElement Early_Withdrawal_Penalty_Box3;
-
-	@FindBy(id = "txtFederalIncomeTaxWithheld")
-	private WebElement FederalIncome_Tax_Withheld_Box4;
 
 	@FindBy(id = "txtMarketDiscount")
 	private WebElement Market_Discount_Box5;
@@ -138,13 +147,13 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 	private WebElement Another_Combined_Federal_State_return_chck;
 
 	@FindBy(id = "ddlScndStatePayerState")
-	private WebElement state_Box12A;
+	private WebElement state_Box;
 
 	@FindBy(id = "txtScndStatePayerStateNum")
-	private WebElement State_Identification_No_Box13A;
+	private WebElement State_Identification_No_Box;
 
 	@FindBy(id = "txtScndStateTaxWithheld")
-	private WebElement StateTax_Withheld_Box14A;
+	private WebElement StateTax_Withheld_Box;
 	
 	
 	//**************************************************************  Filer Information 1099 - A *********************************************************************************
@@ -154,15 +163,6 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 	
 	@FindBy (id = "txtBalanceofOS")
 	private WebElement Balance_of_Principal_Outstanding_Box2;
-	
-	@FindBy (xpath = "//select[@data-handler='selectMonth']")
-	private WebElement Select_month_Form1099A_Box1;
-	
-	@FindBy (xpath = "//select[@data-handler='selectYear']")
-	private WebElement Select_year_Form1099A_Box1;
-	
-	@FindBy (xpath = "//table[@class='ui-datepicker-calendar']/tbody/tr/td/a")
-	private List<WebElement> pick_date_Form1099A_Box1;
 	
 	@FindBy (id = "txtFairMarketValueOfProperty")
 	private WebElement Fair_Market_Value_of_Property_Box4;
@@ -174,7 +174,79 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 	private WebElement Description_of_Property_Box6;
 	
 	
-	//***************************************************************************************************************************************************************************
+	//****************************************************  Filer Information 1099 - B ****************************************************************************
+	
+	@FindBy (id = "ddlDistributionCodes")
+	private WebElement Applicable_checkbox_on_Form_8949;
+	
+	@FindBy (id = "txtCUSIPNo")
+	private WebElement CUSIP_No;
+	
+	@FindBy (id = "txtDescription")
+	private WebElement Description_of_property_Box1a;
+	
+	@FindBy (id = "txtDateAcquired")
+	private WebElement Date_acquired_Box_1b;
+	
+	@FindBy (id = "txtDateSold")
+	private WebElement Date_sold_or_disposed_Box1c;
+	
+	@FindBy (id = "txtProceeds")
+	private WebElement Proceeds_Box1d;
+	
+	@FindBy (id = "txtCostOtherBasis")
+	private WebElement Cost_or_other_basis_Box1e;
+	
+	@FindBy (id = "txtAccruedMarketDiscount")
+	private WebElement Accrued_market_discount_Box1f;
+	
+	@FindBy (id = "txtWashSaleLossDisallowed")
+	private WebElement Wash_sale_loss_disallowed_Box1g;
+	
+	@FindBy (id = "ColumnsFormDetails_14__BoolValue")
+	private WebElement Short_term_gain_or_loss;
+	
+	@FindBy (id = "ColumnsFormDetails_16__BoolValue")
+	private WebElement Long_term_gain_or_loss;
+	
+	@FindBy (id = "ColumnsFormDetails_18__BoolValue")
+	private WebElement Ordinary;
+	
+	@FindBy (id = "ColumnsFormDetails_15__BoolValue")
+	private WebElement Collectibles;
+	
+	@FindBy (id = "ColumnsFormDetails_17__BoolValue")
+	private WebElement QOF;
+	
+	@FindBy (id = "ColumnsFormDetails_20__BoolValue")
+	private WebElement Check_if_noncovered_security_Box5;
+	
+	@FindBy (id = "ColumnsFormDetails_23__BoolValue")
+	private WebElement Gross_proceeds;
+	
+	@FindBy (id = "ColumnsFormDetails_25__BoolValue")
+	private WebElement Net_proceeds;
+	
+	@FindBy (id = "ColumnsFormDetails_22__BoolValue")
+	private WebElement Check_if_loss_is_not_allowed_based_on_amount_in_1d_Box7;
+	
+	@FindBy (id = "txtProfitLoss")
+	private WebElement Profit_or_loss_realized_in_2024_on_closed_contracts_Box8;
+	
+	@FindBy (id = "txtUnrealizedProfitLoss21")
+	private WebElement Unrealized_profit_or_loss_on_open_contracts_12_31_2023_Box9;
+	
+	@FindBy (id = "txtUnrealizedProfitLoss22")
+	private WebElement Unrealized_profit_or_loss_on_open_contracts_12_31_2024_Box10;
+	
+	@FindBy (id = "txtAggregateProfitLoss")
+	private WebElement Aggregate_profit_or_loss_on_contracts_Box11;
+	
+	@FindBy (id = "ColumnsFormDetails_29__BoolValue")
+	private WebElement Check_if_basis_reported_to_IRS_Box12;
+	
+	@FindBy (id = "txtBartering")
+	private WebElement Bartering_Box_13;
 
 	static String fname;
 
@@ -201,7 +273,7 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 			EIN_or_SSN_Field.sendKeys(taxID);
 			business_or_first_Name.sendKeys(bname);
 			
-			if (form == "OID") {
+			if (form == "OID" || form == "B") {
 				
 				secondTIN_chck.click();
 				FATCA_chck.click();
@@ -281,6 +353,7 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 
 		}
 		default -> {
+			
 			throw new IllegalArgumentException("Unexpected address type: " + addType);
 		}
 
@@ -301,7 +374,7 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 		Original_Issue_Discount_Box1.sendKeys(_box1);
 		Other_Periodic_Interest_Box2.sendKeys(_box2);
 		Early_Withdrawal_Penalty_Box3.sendKeys(_box3);
-		FederalIncome_Tax_Withheld_Box4.sendKeys(_box4);
+		Federal_Income_Tax_Withheld_Box4.sendKeys(_box4);
 		Market_Discount_Box5.sendKeys(_box5);
 		Acquisition_Premium_Box6.sendKeys(_box6);
 		Description_Box7.sendKeys(_box7);
@@ -319,10 +392,10 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 
 		Another_Combined_Federal_State_return_chck.click();
 		Thread.sleep(1000);
-		dropdown = new Select(state_Box12A);
+		dropdown = new Select(state_Box);
 		dropdown.selectByVisibleText(_box12a);
-		State_Identification_No_Box13A.sendKeys(_box13a);
-		StateTax_Withheld_Box14A.sendKeys(_box14a);
+		State_Identification_No_Box.sendKeys(_box13a);
+		StateTax_Withheld_Box.sendKeys(_box14a);
 
 		saveButton.click();
 
@@ -339,13 +412,13 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 		
 		Date_of_lenders_acquisition_or_knowledge_of_abandonment_Box1.click();
 		
-		dropdown = new Select(Select_year_Form1099A_Box1);
+		dropdown = new Select(Select_year);
 		dropdown.selectByVisibleText(_year);
 		
-		dropdown = new Select(Select_month_Form1099A_Box1);
+		dropdown = new Select(Select_month);
 		dropdown.selectByVisibleText(_month);
 		
-		for (WebElement date : pick_date_Form1099A_Box1) {
+		for (WebElement date : pick_date) {
 			
 			if (date.getText().equalsIgnoreCase(_date)) {
 				
@@ -363,6 +436,104 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 		
 		Description_of_Property_Box6.sendKeys(_box6);
 		
+		saveButton.click();
+		
+	}
+
+	public void Form_1099_B_FilerInformation(String _accountNo, String officecode, String _Select_form_8949, String _cusipNo, String _descriptionOfProperty, 
+			String _year, String _month, String _date, String _box1d, String _box1e, String _box1f, String _box1g, String _termType, String _box4
+			,String _box8, String _box9, String _box10, String _box11, String _box13, String _box14, String _box15, String _box16, String _box14a, String _box15a, String _box16a) throws InterruptedException {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(officecode);
+		
+		dropdown = new Select(Applicable_checkbox_on_Form_8949);
+		dropdown.selectByVisibleText(_Select_form_8949);
+		CUSIP_No.sendKeys(_cusipNo);
+		Description_of_property_Box1a.sendKeys(_descriptionOfProperty);
+		
+		Date_acquired_Box_1b.click();
+		
+		dropdown = new Select(Select_year);
+		dropdown.selectByVisibleText(_year);
+		
+		dropdown = new Select(Select_month);
+		dropdown.selectByVisibleText(_month);
+		
+		for (WebElement date : pick_date) {
+			
+			if (date.getText().equalsIgnoreCase(_date)) {
+				
+				date.click();
+				break;
+			}
+			
+		}
+		
+		Date_sold_or_disposed_Box1c.click();
+		
+		dropdown = new Select(Select_year);
+		dropdown.selectByVisibleText(_year);
+		
+		dropdown = new Select(Select_month);
+		dropdown.selectByVisibleText(_month);
+		
+		for (WebElement date : pick_date) {
+			
+			if (date.getText().equalsIgnoreCase(_date)) {
+				
+				date.click();
+				break;
+			}
+			
+		}
+		
+		Proceeds_Box1d.sendKeys(_box1d);
+		Cost_or_other_basis_Box1e.sendKeys(_box1e);
+		Accrued_market_discount_Box1f.sendKeys(_box1f);
+		Wash_sale_loss_disallowed_Box1g.sendKeys(_box1g);
+		
+		if (_termType == "Short-term") {
+			
+			Short_term_gain_or_loss.click();
+			
+		}
+		else if (_termType == "Long-term") {
+			
+			Long_term_gain_or_loss.click();
+			
+		}
+		
+		Ordinary.click();
+		Collectibles.click();
+		QOF.click();
+		Federal_Income_Tax_Withheld_Box4.sendKeys(_box4);
+		Check_if_noncovered_security_Box5.click();
+		Net_proceeds.click();
+		Profit_or_loss_realized_in_2024_on_closed_contracts_Box8.sendKeys(_box8);
+		Unrealized_profit_or_loss_on_open_contracts_12_31_2023_Box9.sendKeys(_box9);
+		Unrealized_profit_or_loss_on_open_contracts_12_31_2024_Box10.sendKeys(_box10);
+		Aggregate_profit_or_loss_on_contracts_Box11.sendKeys(_box11);
+		Check_if_basis_reported_to_IRS_Box12.click();
+		Bartering_Box_13.sendKeys(_box13);
+		
+		Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box12);
+		dropdown.selectByVisibleText(_box14);
+		State_Identification_No_Box13.sendKeys(_box15);
+		StateTax_Withheld_Box14.sendKeys(_box16);
+
+		Another_Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box);
+		dropdown.selectByVisibleText(_box14a);
+		State_Identification_No_Box.sendKeys(_box15a);
+		StateTax_Withheld_Box.sendKeys(_box16a);
+
 		saveButton.click();
 		
 	}

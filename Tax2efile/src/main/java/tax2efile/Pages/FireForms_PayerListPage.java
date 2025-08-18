@@ -26,7 +26,7 @@ public class FireForms_PayerListPage extends PageProperties {
 		add_payerinfo_button.click();
 	}
 
-	public FireForms_RecipientListPage SelectProfileAndStartFiling() throws InterruptedException {
+	public FireForms_RecipientListPage SelectProfileAndStartE_Filing() throws InterruptedException {
 
 		String fname = FireForms_PayerInformationPage.fname;
 		String lname = FireForms_PayerInformationPage.lname;

@@ -7,7 +7,7 @@
         <methods>
           <include name="TearDown"/>
           <include name="SetupBrowser"/>
-          <include name="Form_1099OID"/>
+          <include name="Form_1099B"/>
         </methods>
       </class> <!-- tax2efile.Testscripts.FireForms_1099_1098 -->
     </classes>

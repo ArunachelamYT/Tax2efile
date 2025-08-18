@@ -26,7 +26,7 @@ public class PageProperties {
 
 		this.driver = _driver;
 		PageFactory.initElements(driver, this);
-		wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+		wait = new WebDriverWait(driver, Duration.ofSeconds(35));
 		js = (JavascriptExecutor)driver;
 	}
 

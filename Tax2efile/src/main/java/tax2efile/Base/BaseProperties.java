@@ -13,10 +13,11 @@ public class BaseProperties {
 
 	@BeforeMethod
 	@Parameters("runLevel")
-	public void SetupBrowser(@Optional("REVIEW") String RunLevelParam) {
+	public void SetupBrowser(@Optional("FILINGFEE") String RunLevelParam) { //REVIEW || FILINGFEE
 		
 		this.runLevel = RunLevel.valueOf(RunLevelParam.toUpperCase());
 		driver = DriverFactory.getDriver("Chrome");
+		
 	}
 
 	@AfterMethod
