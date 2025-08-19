@@ -133,6 +133,61 @@ public class FireForms_1099_1098 extends BaseProperties {
 	}
 
 	@Test
+	public void Form_1099C() throws InterruptedException {
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
+				"Test@123");
+
+		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
+
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-C", "2024");
+
+		payerListPage.click_AddPayerInfoButton();
+
+		payerListPage.PayerInfoPage.ProvidePayerInformation("Corporation", ProfileName, "123456789");
+
+		payerListPage = payerListPage.PayerInfoPage.ProvidePayerAddressInformation("Within U.S", "1008 W MAIN ST",
+				"SALEM", "null", "Virginia", "24153", "8823792231");
+
+		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
+
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "C", "123456789", ProfileName,
+				"arunachelam@gmail.com", "arunachelam@gmail.com");
+
+		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
+				"Virginia", "Colombia", "VA34556");
+
+		recipientListPage.RecipientInfoPage.Form_1099_C_FilerInformation("qpD0wByXxS", "RT12", "2025", "Aug", "14",
+				"200", "300", "400", "C", "700");
+
+		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
+
+		FilingFeePage filingFeePage = reviewPage.ClickSaveButton();
+
+		// With Skip Payment Flow
+		if (runLevel == RunLevel.REVIEW) {
+
+			filingFeePage.ContinueWithoutPayment();
+
+		}
+
+		// Without Skip Payment Flow
+		else if (runLevel == RunLevel.FILINGFEE) {
+
+			filingFeePage.PMSDetails()
+					.CreditCardInfo("YT Tech", "American Express", "1234567890123456", "Jan", "2034", "2353")
+					.BillingInfo("YT User");
+
+			OrderConfirmationPage orderconfirmPage = filingFeePage.ClickPayNow();
+
+			orderconfirmPage.CheckOrderIsConfirmed();
+		}
+
+	}
+
+	@Test
 	public void Form_1099OID() throws InterruptedException {
 
 		LoginPage loginPage = new LoginPage(driver);

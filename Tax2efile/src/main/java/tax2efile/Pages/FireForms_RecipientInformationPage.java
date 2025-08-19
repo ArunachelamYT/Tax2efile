@@ -247,6 +247,29 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 	
 	@FindBy (id = "txtBartering")
 	private WebElement Bartering_Box_13;
+	
+	//****************************************************  Filer Information 1099 - C ****************************************************************************
+	
+	@FindBy (id = "txtCIdentDate")
+	private WebElement Date_of_identifiable_event_Box1;
+	
+	@FindBy (id = "txtAmountofdebtdischarged")
+	private WebElement Amount_of_debt_discharged_Box2;
+	
+	@FindBy (id = "txtInterestifincludedinbox2")
+	private WebElement Interest_if_included_in_box2_Box3;
+	
+	@FindBy (id = "txtDebtdescription")
+	private WebElement Debt_description_Box4;
+	
+	@FindBy (id = "ColumnsFormDetails_6__BoolValue")
+	private WebElement Check_if_the_debtor_was_personally_liable_for_repayment_of_the_debt_Box5;
+	
+	@FindBy (id = "ddlDistributionCodes")
+	private WebElement Identifiable_event_code_Box6;
+	
+	@FindBy (id = "txtFairmarketvalueofproperty")
+	private WebElement Fair_market_value_of_property_Box7;
 
 	static String fname;
 
@@ -297,10 +320,14 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 			EIN_or_SSN_Field.sendKeys(taxID);
 			business_or_first_Name.sendKeys(fname);
 			js.executeScript("document.getElementById('txtLastName').value='"+lname+"';");
-			//lastName.sendKeys(lname);
-			js.executeScript("arguments[0].click();", secondTIN_chck);
-			//secondTIN_chck.click();
-			FATCA_chck.click();
+
+			if (form == "OID" || form == "B") {
+				
+				js.executeScript("arguments[0].click();", secondTIN_chck);
+				FATCA_chck.click();
+				
+			}
+			
 			emailID.sendKeys(email);
 			confirmEmailID.sendKeys(confirmEmail);
 
@@ -535,6 +562,47 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 		StateTax_Withheld_Box.sendKeys(_box16a);
 
 		saveButton.click();
+		
+	}
+
+	public void Form_1099_C_FilerInformation(String _accountNo, String _officecode, String _year, String _month, String _date, 
+			String _box2, String _box3, String _box4, String _box6, String _box7) {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(_officecode);
+		
+		Date_of_identifiable_event_Box1.click();
+		
+		dropdown = new Select(Select_year);
+		dropdown.selectByVisibleText(_year);
+		
+		dropdown = new Select(Select_month);
+		dropdown.selectByVisibleText(_month);
+		
+		for (WebElement date : pick_date) {
+			
+			if (date.getText().equalsIgnoreCase(_date)) {
+				
+				date.click();
+				break;
+			}
+			
+		}
+		
+		Amount_of_debt_discharged_Box2.sendKeys(_box2);
+		Interest_if_included_in_box2_Box3.sendKeys(_box3);
+		Debt_description_Box4.sendKeys(_box4);
+		Check_if_the_debtor_was_personally_liable_for_repayment_of_the_debt_Box5.click();
+		
+		dropdown = new Select(Identifiable_event_code_Box6);
+		dropdown.selectByVisibleText(_box6);
+		Fair_market_value_of_property_Box7.sendKeys(_box7);
+		
+		saveButton.click();
+
 		
 	}
 

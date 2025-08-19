@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="2" total="3" passed="1" failed="0" skipped="0">
+<testng-results ignored="3" total="4" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-08-18T15:19:08 IST" name="Default suite" finished-at="2025-08-18T15:21:26 IST" duration-ms="138289">
+  <suite started-at="2025-08-19T17:51:08 IST" name="Default suite" finished-at="2025-08-19T17:53:00 IST" duration-ms="112600">
     <groups>
     </groups>
-    <test started-at="2025-08-18T15:19:08 IST" name="Default test" finished-at="2025-08-18T15:21:26 IST" duration-ms="138289">
+    <test started-at="2025-08-19T17:51:08 IST" name="Default test" finished-at="2025-08-19T17:53:00 IST" duration-ms="112600">
       <class name="tax2efile.Testscripts.FireForms_1099_1098">
-        <test-method is-config="true" signature="SetupBrowser(java.lang.String)[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@1189dd52]" started-at="2025-08-18T15:19:08 IST" name="SetupBrowser" finished-at="2025-08-18T15:19:18 IST" duration-ms="9887" status="PASS">
+        <test-method is-config="true" signature="SetupBrowser(java.lang.String)[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@2b662a77]" started-at="2025-08-19T17:51:08 IST" name="SetupBrowser" finished-at="2025-08-19T17:51:16 IST" duration-ms="8575" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,11 +18,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- SetupBrowser -->
-        <test-method signature="Form_1099B()[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@1189dd52]" started-at="2025-08-18T15:19:18 IST" name="Form_1099B" description="FireForm 1099 B" finished-at="2025-08-18T15:21:26 IST" duration-ms="128021" status="PASS">
+        <test-method signature="Form_1099C()[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@2b662a77]" started-at="2025-08-19T17:51:16 IST" name="Form_1099C" finished-at="2025-08-19T17:53:00 IST" duration-ms="103724" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Form_1099B -->
-        <test-method is-config="true" signature="TearDown()[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@1189dd52]" started-at="2025-08-18T15:21:26 IST" name="TearDown" finished-at="2025-08-18T15:21:26 IST" duration-ms="345" status="PASS">
+        </test-method> <!-- Form_1099C -->
+        <test-method is-config="true" signature="TearDown()[pri:0, instance:tax2efile.Testscripts.FireForms_1099_1098@2b662a77]" started-at="2025-08-19T17:53:00 IST" name="TearDown" finished-at="2025-08-19T17:53:00 IST" duration-ms="266" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- TearDown -->
