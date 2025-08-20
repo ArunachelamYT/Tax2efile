@@ -78,7 +78,7 @@ public class FireForms_PayerInformationPage extends PageProperties {
 	static String businessName;
 
 	// Payer Information Block
-	public void ProvidePayerInformation(String businessType, String _ProfileName, String ssn) {
+	public void ProvidePayerInformation(String businessType, String _ProfileName, String ein_num) {
 
 		switch (businessType) {
 
@@ -98,7 +98,7 @@ public class FireForms_PayerInformationPage extends PageProperties {
 
 			Lname.sendKeys(lname);
 
-			SSN.sendKeys(ssn);
+			SSN.sendKeys(ein_num);
 
 			break;
 
@@ -115,7 +115,7 @@ public class FireForms_PayerInformationPage extends PageProperties {
 
 			BusinessName.sendKeys(businessName);
 
-			SSN.sendKeys(ssn);
+			SSN.sendKeys(ein_num);
 
 			break;
 		}

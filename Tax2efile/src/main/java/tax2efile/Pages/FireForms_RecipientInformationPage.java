@@ -2,9 +2,11 @@ package tax2efile.Pages;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 import tax2efile.Base.PageProperties;
@@ -270,7 +272,221 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 	
 	@FindBy (id = "txtFairmarketvalueofproperty")
 	private WebElement Fair_market_value_of_property_Box7;
+	
+	//****************************************************  Filer Information 1099 - CAP ****************************************************************************
+	
+	@FindBy (id = "txtDateofsaleexchange")
+	private WebElement Date_of_sale_or_exchange_Box1;
+	
+	@FindBy (id = "txtaggregateamountrecd")
+	private WebElement Aggregate_amount_recd_Box2;
+	
+	@FindBy (id = "txtnoofsharesexchanged")
+	private WebElement No_of_shares_exchanged_Box3;
+	
+	@FindBy (xpath = "//button[@class='multiselect custom-select text-start']")
+	private WebElement Classes_of_stock_exchanged_Box4;
+	
+	@FindBy (id = "txtdesc")
+	private WebElement Form1099CAP_Box5;
+	
+	//****************************************************  Filer Information 1099 - DIV ****************************************************************************
 
+	@FindBy (id = "txtOrdDividents")
+	private WebElement Total_ordinary_dividends_Box1a;
+	
+	@FindBy (id = "txtQualDividents")
+	private WebElement Qualified_dividends_Box1b;
+	
+	@FindBy (id = "txtDistribution")
+	private WebElement Total_capital_gain_distribution_Box2a;
+	
+	@FindBy (id = "txtSec1250Gain")
+	private WebElement Unrecaptured_Section_1250_gain_Box2b;
+	
+	@FindBy (id = "txtSec1202Gain")
+	private WebElement Section_1202_gain_Box2c;
+	
+	@FindBy (id = "txtCollectibleGain")
+	private WebElement Collectibles_28_rate_gain_Box2d;
+	
+	@FindBy (id = "txtSec897Div")
+	private WebElement Section_897_Ordinary_Dividents_Box2e;
+	
+	@FindBy (id = "txtSec897Gain")
+	private WebElement Section_897_Capital_Gains_Box2f;
+	
+	@FindBy (id = "txtNonDivDist")
+	private WebElement Nondividend_distributions_Box3;
+	
+	@FindBy (id = "txtFederalWithheld")
+	private WebElement Federal_income_tax_withheld_Box4;
+	
+	@FindBy (id = "txtSec199ADividents")
+	private WebElement Section_199A_Dividends_Box5;
+	
+	@FindBy (id = "txtInvestExp")
+	private WebElement Investment_expenses_Box6;
+	
+	@FindBy (id = "txtFrgnTaxPaid")
+	private WebElement Foreign_tax_paid_Box7;
+	
+	@FindBy (id = "txtForeignUSPossession")
+	private WebElement Foreign_Country_or_US_Possession_Box8;
+	
+	@FindBy (id = "txtCashLiqDist")
+	private WebElement Cash_liquidation_distributions_Box9;
+	
+	@FindBy (id = "txtNonCashLiqDist")
+	private WebElement Non_Cash_liquidation_distributions_Box10;
+	
+	@FindBy (id = "txtExemptInterest")
+	private WebElement Exempt_interest_dividends_Box12;
+	
+	@FindBy (id = "txtInterestDiv")
+	private WebElement Specified_private_activity_bond_interest_dividents_Box13;
+	
+	
+	//**************************************************  Filer Information 1099 - G *******************************************************************
+	
+	@FindBy (id = "txtUnemploymentcompensation")
+	private WebElement Unemployment_compensation_Box1;
+
+	@FindBy (id = "txtStateorlocaltaxrefunds")
+	private WebElement State_or_local_income_tax_refunds_credits_or_offsets_Box2;
+	
+	@FindBy (id = "ddlAmounttaxyear")
+	private WebElement Box2_amount_is_for_tax_year_Box3;
+	
+	@FindBy (id = "txtRTAApayments")
+	private WebElement RTAA_payments_Box5;
+	
+	@FindBy (id = "txtTaxablegrants")
+	private WebElement Taxable_grants_Box6;
+	
+	@FindBy (id = "txtAgriculturepayments")
+	private WebElement Agriculture_payments_Box7;
+	
+	@FindBy (id = "ColumnsFormDetails_9__BoolValue")
+	private WebElement Check_if_box2_is_trade_or_business_income_Box8;
+	
+	@FindBy (id = "txtMarketgain")
+	private WebElement Market_gain_Box9;
+	
+	//**************************************************  Filer Information 1099 - INT *******************************************************************
+	
+	@FindBy (id = "txtInterestIncome")
+	private WebElement Interest_Income_Box1;
+	
+	@FindBy (id = "txtWithdrawalPenalties")
+	private WebElement Early_Withdrawal_Penality_Box2;
+	
+	@FindBy (id = "txtInterestUSBonds")
+	private WebElement Interest_on_US_Savings_Bonds_and_Treasury_obligations_Box3;
+	
+	@FindBy (id = "txtInvestmentExpenses")
+	private WebElement Investment_Expenses_Box5;
+	
+	@FindBy (id = "txtForeignTaxPaid")
+	private WebElement Foreign_Tax_Paid_Box6;
+	
+	@FindBy (id = "txtForeignUSPossession")
+	private WebElement Foreign_Country_or_US_Possession_Box7_field;
+	
+	@FindBy (id = "ddlForeignUSPossession")
+	private WebElement Foreign_Country_or_US_Possession_Box7_drp;
+	
+	@FindBy (id = "txtTaxExemptInterest")
+	private WebElement Tax_Exempt_Interest_Box8;
+	
+	@FindBy (id = "txtPrivateActivityBond")
+	private WebElement Specified_Private_Activity_Bond_Interest_Box9;
+	
+	@FindBy (id = "txtMarketDiscount")
+	private WebElement Market_Discount_Box10;
+	
+	@FindBy (id = "txtBondPremium")
+	private WebElement Bond_Premium_Box11;
+	
+	@FindBy (id = "txtBondPremiumOnTreasuryOblgtn")
+	private WebElement Bond_Premium_On_Treasury_Obligation_Box12;
+	
+	@FindBy (id = "txtTaxExeemptBond")
+	private WebElement Bond_Premium_On_TaxExempt_Bond_Box13;
+	
+	@FindBy (id = "txtTaxExemptBondCusipNum")
+	private WebElement TaxExempt_and_taxcredit_bond_CUSIPno_Box14;
+	
+	//**************************************************  Filer Information 1099 - K *******************************************************************
+	
+	@FindBy (id = "txtGrossAmount")
+	private WebElement Gross_Amount_of_PaymentCard_Third_Party_Network_Transactions_Box1a;
+	
+	@FindBy (id = "txtNoCardTransactions")
+	private WebElement Card_Not_Present_Transactions_Box1b;
+	
+	@FindBy (id = "txtMerchantCtgyCd")
+	private WebElement Merchant_Category_Code_Box2;
+	
+	@FindBy (id = "PaymentSettlementEntity")
+	private WebElement Payment_Settlement_Entity_checkbox;
+	
+	@FindBy (id = "ElectronicPaymentFacilitatorOtherThirdParty")
+	private WebElement Electronic_Payment_Facilitator_Other_ThirdParty_checkbox;
+	
+	@FindBy (id = "txtPSEName")
+	private WebElement PSES_Name;
+	
+	@FindBy (id = "txtPSENumber")
+	private WebElement PSES_PhoneNumber;
+	
+	@FindBy (id = "PaymentCard")
+	private WebElement Payment_Card;
+	
+	@FindBy (id = "ThirdPartyNetwork")
+	private WebElement ThirdParty_Network;
+	
+	@FindBy (id = "txtPymntTransactions")
+	private WebElement Number_of_Payment_Transactions_Box3;
+	
+	@FindBy (id = "txtJan")
+	private WebElement January_Box5a;
+	
+	@FindBy (id = "txtFeb")
+	private WebElement February_Box5b;
+	
+	@FindBy (id = "txtMar")
+	private WebElement March_Box5c;
+	
+	@FindBy (id = "txtApr")
+	private WebElement April_Box5d;
+	
+	@FindBy (id = "txtMay")
+	private WebElement May_Box5e;
+	
+	@FindBy (id = "txtJun")
+	private WebElement June_Box5f;
+	
+	@FindBy (id = "txtJul")
+	private WebElement July_Box5g;
+	
+	@FindBy (id = "txtAug")
+	private WebElement August_Box5h;
+	
+	@FindBy (id = "txtSep")
+	private WebElement September_Box5i;
+	
+	@FindBy (id = "txtOct")
+	private WebElement October_Box5j;
+	
+	@FindBy (id = "txtNov")
+	private WebElement November_Box5k;
+	
+	@FindBy (id = "txtDec")
+	private WebElement December_Box5l;
+	
+	//******************************************************************************** *******************************************************************
+	
 	static String fname;
 
 	static String lname;
@@ -296,10 +512,14 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 			EIN_or_SSN_Field.sendKeys(taxID);
 			business_or_first_Name.sendKeys(bname);
 			
-			if (form == "OID" || form == "B") {
+			if (form == "OID" || form == "B" || form == "G" || form == "INT" || form == "K") {
 				
 				secondTIN_chck.click();
-				FATCA_chck.click();
+				
+				if (form == "OID" || form == "B" || form == "INT") {
+					
+					FATCA_chck.click();
+				}
 				
 			}
 			
@@ -321,10 +541,16 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 			business_or_first_Name.sendKeys(fname);
 			js.executeScript("document.getElementById('txtLastName').value='"+lname+"';");
 
-			if (form == "OID" || form == "B") {
+			if (form == "OID" || form == "B" || form == "G" || form == "INT" || form == "K") {
+				
+				
 				
 				js.executeScript("arguments[0].click();", secondTIN_chck);
-				FATCA_chck.click();
+				
+				if (form == "OID" || form == "B" || form == "INT") {
+					
+					FATCA_chck.click();
+				}
 				
 			}
 			
@@ -603,6 +829,276 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 		
 		saveButton.click();
 
+		
+	}
+
+	public void Form_1099_CAP_FilerInformation(String _accountNo, String _officecode, String _year, String _month, String _date, 
+			String _box2, String _box3, String _box4) {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(_officecode);
+		
+		Date_of_sale_or_exchange_Box1.click();
+		
+		dropdown = new Select(Select_year);
+		dropdown.selectByVisibleText(_year);
+		
+		dropdown = new Select(Select_month);
+		dropdown.selectByVisibleText(_month);
+		
+		for (WebElement date : pick_date) {
+			
+			if (date.getText().equalsIgnoreCase(_date)) {
+				
+				date.click();
+				break;
+			}
+			
+		}
+		
+		Aggregate_amount_recd_Box2.sendKeys(_box2);
+		No_of_shares_exchanged_Box3.sendKeys(_box3);
+		
+		//Select the classes of stock exchanged options
+		Classes_of_stock_exchanged_Box4.click();
+		
+		//Check the popup box visibility
+		WebElement optionBox = driver.findElement(By.xpath("//div[@class='multiselect-container dropdown-menu dropdown-m-menu show']"));
+		wait.until(ExpectedConditions.visibilityOfAllElements(optionBox));
+		
+		//Get the all label Names
+		List<WebElement> optionsLabel = driver.findElements(By.xpath("//div[@class='multiselect-container dropdown-menu dropdown-m-menu show'] //span/label"));
+		
+		//Get the all the check boxes count
+		List<WebElement> checkboxes = driver.findElements(By.xpath("//div[@class='multiselect-container dropdown-menu dropdown-m-menu show'] //span/input"));
+		
+		for (int i = 0; i < optionsLabel.size(); i++) {
+			
+			if (optionsLabel.get(i).getText().equalsIgnoreCase(_box4)) {
+				
+				checkboxes.get(i).click();
+				Classes_of_stock_exchanged_Box4.click();
+				break;
+				
+			}	
+			
+		}
+		
+		//Form1099CAP_Box5.sendKeys(_box5);
+		saveButton.click();
+		
+	}
+
+	public void Form_1099_DIV_FilerInformation(String _accountNo, String _officecode, String _box1a, 
+			String _box1b, String _box2a, String _box2b, String _box2c, String _box2d, String _box2e, 
+			String _box2f, String _box3, String _box4, String _box5, String _box6, 
+			String _box7, String _box8, String _box9, String _box10, String _box12, String _box13, 
+			String _box14, String _box15, String _box16, String _box14a, String _box15a, String _box16a) throws InterruptedException {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(_officecode);
+		
+		Total_ordinary_dividends_Box1a.sendKeys(_box1a);
+		Qualified_dividends_Box1b.sendKeys(_box1b);
+		Total_capital_gain_distribution_Box2a.sendKeys(_box2a);
+		Unrecaptured_Section_1250_gain_Box2b.sendKeys(_box2b);
+		Section_1202_gain_Box2c.sendKeys(_box2c);
+		Collectibles_28_rate_gain_Box2d.sendKeys(_box2d);
+		Section_897_Ordinary_Dividents_Box2e.sendKeys(_box2e);
+		Section_897_Capital_Gains_Box2f.sendKeys(_box2f);
+		Nondividend_distributions_Box3.sendKeys(_box3);
+		Federal_income_tax_withheld_Box4.sendKeys(_box4);
+		Section_199A_Dividends_Box5.sendKeys(_box5);
+		Investment_expenses_Box6.sendKeys(_box6);
+		Foreign_tax_paid_Box7.sendKeys(_box7);
+		Foreign_Country_or_US_Possession_Box8.sendKeys(_box8);
+		Cash_liquidation_distributions_Box9.sendKeys(_box9);
+		Non_Cash_liquidation_distributions_Box10.sendKeys(_box10);
+		Exempt_interest_dividends_Box12.sendKeys(_box12);
+		Specified_private_activity_bond_interest_dividents_Box13.sendKeys(_box13);
+		
+		Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box12);
+		dropdown.selectByVisibleText(_box14);
+		State_Identification_No_Box13.sendKeys(_box15);
+		StateTax_Withheld_Box14.sendKeys(_box16);
+
+		Another_Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box);
+		dropdown.selectByVisibleText(_box14a);
+		State_Identification_No_Box.sendKeys(_box15a);
+		StateTax_Withheld_Box.sendKeys(_box16a);
+		
+		saveButton.click();
+		
+	}
+
+	public void Form_1099_G_FilerInformation(String _accountNo, String _officecode, String _box1, String _box2, String _box3, String _box4,
+			String _box5, String _box6, String _box7, String _box9, String _box10a, String _box10b, String _box11,
+			String _box10aa, String _box10bb, String _box11a) throws InterruptedException {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(_officecode);
+		
+		Unemployment_compensation_Box1.sendKeys(_box1);
+		State_or_local_income_tax_refunds_credits_or_offsets_Box2.sendKeys(_box2);
+		
+		dropdown = new Select(Box2_amount_is_for_tax_year_Box3);
+		dropdown.selectByVisibleText(_box3);
+		
+		Federal_Income_Tax_Withheld_Box4.sendKeys(_box4);
+		RTAA_payments_Box5.sendKeys(_box5);
+		Taxable_grants_Box6.sendKeys(_box6);
+		Agriculture_payments_Box7.sendKeys(_box7);
+		Check_if_box2_is_trade_or_business_income_Box8.click();
+		Market_gain_Box9.sendKeys(_box9);
+		
+		Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box12);
+		dropdown.selectByVisibleText(_box10a);
+		State_Identification_No_Box13.sendKeys(_box10b);
+		StateTax_Withheld_Box14.sendKeys(_box11);
+
+		Another_Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box);
+		dropdown.selectByVisibleText(_box10aa);
+		State_Identification_No_Box.sendKeys(_box10bb);
+		StateTax_Withheld_Box.sendKeys(_box11a);
+		
+		saveButton.click();
+		
+	}
+
+	public void Form_1099_INT_FilerInformation(String _accountNo, String _officecode, String _box1, String _box2, String _box3, String _box4,
+			String _box5, String _box6, String _box7, String _box8, String _box9, String _box10, String _box11, String _box12, String _box13,
+			String _box14, String _box15, String _box16, String _box17, String _box15a, String _box16a, String _box17a) throws InterruptedException {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(_officecode);
+		
+		Interest_Income_Box1.sendKeys(_box1);
+		Early_Withdrawal_Penality_Box2.sendKeys(_box2);
+		Interest_on_US_Savings_Bonds_and_Treasury_obligations_Box3.sendKeys(_box3);
+		Federal_Income_Tax_Withheld_Box4.sendKeys(_box4);
+		Investment_Expenses_Box5.sendKeys(_box5);
+		Foreign_Tax_Paid_Box6.sendKeys(_box6);
+		
+		wait.until(ExpectedConditions.elementToBeClickable(Foreign_Country_or_US_Possession_Box7_field)).click();
+		dropdown = new Select(Foreign_Country_or_US_Possession_Box7_drp);
+		dropdown.selectByVisibleText(_box7);
+		
+		Tax_Exempt_Interest_Box8.sendKeys(_box8);
+		Specified_Private_Activity_Bond_Interest_Box9.sendKeys(_box9);
+		Market_Discount_Box10.sendKeys(_box10);
+		Bond_Premium_Box11.sendKeys(_box11);
+		Bond_Premium_On_Treasury_Obligation_Box12.sendKeys(_box12);
+		Bond_Premium_On_TaxExempt_Bond_Box13.sendKeys(_box13);
+		TaxExempt_and_taxcredit_bond_CUSIPno_Box14.sendKeys(_box14);
+		
+		Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box12);
+		dropdown.selectByVisibleText(_box15);
+		State_Identification_No_Box13.sendKeys(_box16);
+		StateTax_Withheld_Box14.sendKeys(_box17);
+
+		Another_Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box);
+		dropdown.selectByVisibleText(_box15a);
+		State_Identification_No_Box.sendKeys(_box16a);
+		StateTax_Withheld_Box.sendKeys(_box17a);
+		
+		saveButton.click();
+		
+	}
+
+	public void Form_1099_K_FilerInformation(String _accountNo, String _officecode, String _box1b, String _box2,
+			String filertype, String _PSESName, String _PSESPhoneNumber, String select_transactionsReportedType, String _box3, String _box4,
+			String _box5a, String _box5b, String _box5c, String _box5d, String _box5e, String _box5f,
+			String _box5g, String _box5h, String _box5i, String _box5j, String _box5k, String _box5l, String _box6, String _box7, String _box8, String _box6a, String _box7a, String _box8a) throws InterruptedException {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(_officecode);
+		
+		Card_Not_Present_Transactions_Box1b.sendKeys(_box1b);
+		Merchant_Category_Code_Box2.sendKeys(_box2);
+		
+		//Select the Type Either Payment Settlement Entity or Electronic Payment Facilitator /Other Third Party
+		if (filertype == "Electronic Payment Facilitator/Other Third Party") {
+			
+			Electronic_Payment_Facilitator_Other_ThirdParty_checkbox.click();
+			wait.until(ExpectedConditions.visibilityOf(PSES_Name)).sendKeys(_PSESName);
+			wait.until(ExpectedConditions.visibilityOf(PSES_PhoneNumber)).sendKeys(_PSESPhoneNumber);
+			
+		}
+		else {
+			
+			wait.until(ExpectedConditions.visibilityOf(Payment_Settlement_Entity_checkbox)).click();
+			
+		}	
+		
+		//Select the Type Either Payment Card or Third Party Network
+		if (select_transactionsReportedType == "Payment Card") {
+			
+			wait.until(ExpectedConditions.visibilityOf(Payment_Card)).click();
+			
+		}
+		else if (select_transactionsReportedType == "Third Party Network") {
+			
+			wait.until(ExpectedConditions.visibilityOf(ThirdParty_Network)).click();
+			
+		}
+		
+		Number_of_Payment_Transactions_Box3.sendKeys(_box3);
+		Federal_Income_Tax_Withheld_Box4.sendKeys(_box4);
+		January_Box5a.sendKeys(_box5a);
+		February_Box5b.sendKeys(_box5b);
+		March_Box5c.sendKeys(_box5c);
+		April_Box5d.sendKeys(_box5d);
+		May_Box5e.sendKeys(_box5e);
+		June_Box5f.sendKeys(_box5f);
+		July_Box5g.sendKeys(_box5g);
+		August_Box5h.sendKeys(_box5h);
+		September_Box5i.sendKeys(_box5i);
+		October_Box5j.sendKeys(_box5j);
+		November_Box5k.sendKeys(_box5k);
+		December_Box5l.sendKeys(_box5l);
+		
+		Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box12);
+		dropdown.selectByVisibleText(_box6);
+		State_Identification_No_Box13.sendKeys(_box7);
+		StateTax_Withheld_Box14.sendKeys(_box8);
+
+		Another_Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		dropdown = new Select(state_Box);
+		dropdown.selectByVisibleText(_box6a);
+		State_Identification_No_Box.sendKeys(_box7a);
+		StateTax_Withheld_Box.sendKeys(_box8a);
+		
+		saveButton.click();
 		
 	}
 
