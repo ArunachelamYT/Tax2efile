@@ -5,9 +5,9 @@
     <classes>
       <class name="tax2efile.Testscripts.FireForms_1099_1098">
         <methods>
+          <include name="Form_1099PATR"/>
           <include name="TearDown"/>
           <include name="SetupBrowser"/>
-          <include name="Form_1099K"/>
         </methods>
       </class> <!-- tax2efile.Testscripts.FireForms_1099_1098 -->
     </classes>

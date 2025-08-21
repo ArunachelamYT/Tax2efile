@@ -20,8 +20,6 @@ public class FireForms_1099_1098 extends BaseProperties {
 	@Test
 	public void Form_1099A() throws InterruptedException {
 
-		System.out.println("Form 1099 A is Process");
-
 		LoginPage loginPage = new LoginPage(driver);
 
 		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
@@ -466,6 +464,282 @@ public class FireForms_1099_1098 extends BaseProperties {
 
 	}
 
+	@Test
+	public void Form_1099LS() throws InterruptedException {
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
+				"Test@123");
+
+		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
+
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-LS", "2024");
+
+		payerListPage.click_AddPayerInfoButton();
+
+		payerListPage.PayerInfoPage.ProvidePayerInformation("Corporation", ProfileName, "123456789");
+
+		payerListPage = payerListPage.PayerInfoPage.ProvidePayerAddressInformation("Within U.S", "1008 W MAIN ST",
+				"SALEM", "null", "Virginia", "24153", "8823792231");
+
+		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
+
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "LS", "123456789", ProfileName,
+				"arunachelam@gmail.com", "arunachelam@gmail.com");
+
+		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
+				"Virginia", "Colombia", "VA34556");
+
+		recipientListPage.RecipientInfoPage.Form_1099_LS_FilerInformation("12345678901234567890", "100", "2025", "Aug",
+				"14", "Yt user", "1008 W MAIN ST -2025");
+
+		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
+
+		FilingFeePage filingFeePage = reviewPage.ClickSaveButton();
+
+		// With Skip Payment Flow
+		if (runLevel == RunLevel.REVIEW) {
+
+			filingFeePage.ContinueWithoutPayment();
+
+		}
+
+		// Without Skip Payment Flow
+		else if (runLevel == RunLevel.FILINGFEE) {
+
+			filingFeePage.PMSDetails()
+					.CreditCardInfo("YT Tech", "American Express", "1234567890123456", "Jan", "2034", "2353")
+					.BillingInfo("YT User");
+
+			OrderConfirmationPage orderconfirmPage = filingFeePage.ClickPayNow();
+
+			orderconfirmPage.CheckOrderIsConfirmed();
+		}
+
+	}
+
+	@Test
+	public void Form_1099LTC() throws InterruptedException {
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
+				"Test@123");
+
+		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
+
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-LTC", "2024");
+
+		payerListPage.click_AddPayerInfoButton();
+
+		payerListPage.PayerInfoPage.ProvidePayerInformation("Corporation", ProfileName, "123456789");
+
+		payerListPage = payerListPage.PayerInfoPage.ProvidePayerAddressInformation("Within U.S", "1008 W MAIN ST",
+				"SALEM", "null", "Virginia", "24153", "8823792231");
+
+		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
+
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "LTC", "123456789", ProfileName,
+				"arunachelam@gmail.com", "arunachelam@gmail.com");
+
+		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
+				"Virginia", "Colombia", "VA34556");
+
+		recipientListPage.RecipientInfoPage.Form_1099_LTC_FilerInformation("DRgVnJVWJV", "RT24", "100", "200",
+				"123456789", "Arunachelam", "1008 W MAIN ST", "2025", "Aug", "14");
+
+		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
+
+		FilingFeePage filingFeePage = reviewPage.ClickSaveButton();
+
+		// With Skip Payment Flow
+		if (runLevel == RunLevel.REVIEW) {
+
+			filingFeePage.ContinueWithoutPayment();
+
+		}
+
+		// Without Skip Payment Flow
+		else if (runLevel == RunLevel.FILINGFEE) {
+
+			filingFeePage.PMSDetails()
+					.CreditCardInfo("YT Tech", "American Express", "1234567890123456", "Jan", "2034", "2353")
+					.BillingInfo("YT User");
+
+			OrderConfirmationPage orderconfirmPage = filingFeePage.ClickPayNow();
+
+			orderconfirmPage.CheckOrderIsConfirmed();
+		}
+
+	}
+
+	@Test
+	public void Form_1099MISC() throws InterruptedException {
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
+				"Test@123");
+
+		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
+
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-MISC", "2024");
+
+		payerListPage.click_AddPayerInfoButton();
+
+		payerListPage.PayerInfoPage.ProvidePayerInformation("Corporation", ProfileName, "123456789");
+
+		payerListPage = payerListPage.PayerInfoPage.ProvidePayerAddressInformation("Within U.S", "1008 W MAIN ST",
+				"SALEM", "null", "Virginia", "24153", "8823792231");
+
+		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
+
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "MISC", "123456789", ProfileName,
+				"arunachelam@gmail.com", "arunachelam@gmail.com");
+
+		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
+				"Virginia", "Colombia", "VA34556");
+
+		recipientListPage.RecipientInfoPage.Form_1099_MISC_FilerInformation("DRgVnJVWJV", "RT24", "100", "200", "300",
+				"400", "500", "600", "800", "900", "1000", "1100", "1200", "1400", "1500", "California", "123456789",
+				"160", "222", "Maine", "987654321", "161", "333");
+
+		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
+
+		FilingFeePage filingFeePage = reviewPage.ClickSaveButton();
+
+		// With Skip Payment Flow
+		if (runLevel == RunLevel.REVIEW) {
+
+			filingFeePage.ContinueWithoutPayment();
+
+		}
+
+		// Without Skip Payment Flow
+		else if (runLevel == RunLevel.FILINGFEE) {
+
+			filingFeePage.PMSDetails()
+					.CreditCardInfo("YT Tech", "American Express", "1234567890123456", "Jan", "2034", "2353")
+					.BillingInfo("YT User");
+
+			OrderConfirmationPage orderconfirmPage = filingFeePage.ClickPayNow();
+
+			orderconfirmPage.CheckOrderIsConfirmed();
+		}
+
+	}
+	
+	@Test
+	public void Form_1099NEC() throws InterruptedException {
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
+				"Test@123");
+
+		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
+
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-NEC", "2024");
+
+		payerListPage.click_AddPayerInfoButton();
+
+		payerListPage.PayerInfoPage.ProvidePayerInformation("Corporation", ProfileName, "123456789");
+
+		payerListPage = payerListPage.PayerInfoPage.ProvidePayerAddressInformation("Within U.S", "1008 W MAIN ST",
+				"SALEM", "null", "Virginia", "24153", "8823792231");
+
+		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
+
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "NEC", "123456789", ProfileName,
+				"arunachelam@gmail.com", "arunachelam@gmail.com");
+
+		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
+				"Virginia", "Colombia", "VA34556");
+
+		recipientListPage.RecipientInfoPage.Form_1099_NEC_FilerInformation("DRgVnJVWJV", "RT24", "100", "24","California", "123456789",
+				"160", "222", "Maine", "987654321", "161", "333");
+
+		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
+
+		FilingFeePage filingFeePage = reviewPage.ClickSaveButton();
+
+		// With Skip Payment Flow
+		if (runLevel == RunLevel.REVIEW) {
+
+			filingFeePage.ContinueWithoutPayment();
+
+		}
+
+		// Without Skip Payment Flow
+		else if (runLevel == RunLevel.FILINGFEE) {
+
+			filingFeePage.PMSDetails()
+					.CreditCardInfo("YT Tech", "American Express", "1234567890123456", "Jan", "2034", "2353")
+					.BillingInfo("YT User");
+
+			OrderConfirmationPage orderconfirmPage = filingFeePage.ClickPayNow();
+
+			orderconfirmPage.CheckOrderIsConfirmed();
+		}
+
+	}
+
+	@Test
+	public void Form_1099PATR() throws InterruptedException {
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
+				"Test@123");
+
+		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
+
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-PATR", "2024");
+
+		payerListPage.click_AddPayerInfoButton();
+
+		payerListPage.PayerInfoPage.ProvidePayerInformation("Corporation", ProfileName, "123456789");
+
+		payerListPage = payerListPage.PayerInfoPage.ProvidePayerAddressInformation("Within U.S", "1008 W MAIN ST",
+				"SALEM", "null", "Virginia", "24153", "8823792231");
+
+		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
+
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "PATR", "123456789", ProfileName,
+				"arunachelam@gmail.com", "arunachelam@gmail.com");
+
+		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
+				"Virginia", "Colombia", "VA34556");
+
+		recipientListPage.RecipientInfoPage.Form_1099_PATR_FilerInformation("DRgVnJVWJV", "RT24", "100", "200","32", "199.68",
+				"500", "600", "700", "800", "900", "1000", "1100", "1200");
+
+		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
+
+		FilingFeePage filingFeePage = reviewPage.ClickSaveButton();
+
+		// With Skip Payment Flow
+		if (runLevel == RunLevel.REVIEW) {
+
+			filingFeePage.ContinueWithoutPayment();
+
+		}
+
+		// Without Skip Payment Flow
+		else if (runLevel == RunLevel.FILINGFEE) {
+
+			filingFeePage.PMSDetails()
+					.CreditCardInfo("YT Tech", "American Express", "1234567890123456", "Jan", "2034", "2353")
+					.BillingInfo("YT User");
+
+			OrderConfirmationPage orderconfirmPage = filingFeePage.ClickPayNow();
+
+			orderconfirmPage.CheckOrderIsConfirmed();
+		}
+
+	}
+	
 	@Test
 	public void Form_1099OID() throws InterruptedException {
 
