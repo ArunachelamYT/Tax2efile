@@ -635,7 +635,111 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 	@FindBy (id = "ColumnsFormDetails_14__BoolValue")
 	private WebElement Specified_Coop_Box13;
 	
-	//******************************************************************************************************************************************************************************
+	//*****************************************************************  Filer Information 1099 - Q **********************************************************************
+	
+	@FindBy (id = "txtgrossdistribution")
+	private WebElement Gross_distribution_Box1;
+	
+	@FindBy (id = "txtearnings")
+	private WebElement Earnings_Box2;
+	
+	@FindBy (id = "txtbasis")
+	private WebElement Basis_Box3;
+	
+	@FindBy (id = "ColumnsFormDetails_5__BoolValue")
+	private WebElement Trustee_to_trustee_transfer_Box4;
+	
+	@FindBy (id = "ColumnsFormDetails_8__BoolValue")
+	private WebElement Qualified_tuition_program_Box5_Private;
+	
+	@FindBy (id = "ColumnsFormDetails_9__BoolValue")
+	private WebElement Qualified_tuition_program_Box5_State;
+	
+	@FindBy (id = "ColumnsFormDetails_10__BoolValue")
+	private WebElement Qualified_tuition_program_Box5_CoverdellESA;
+	
+	@FindBy (id = "ColumnsFormDetails_12__BoolValue")
+	private WebElement Check_if_the_recipient_is_not_the_designated_beneficiary_Box6;
+	
+	@FindBy (id = "txttaxbenefitsforeducation")
+	private WebElement fair_market_value_FMV;
+	
+	//*****************************************************************  Filer Information 1099 - R ***********************************************************************
+	
+	@FindBy (id = "txtGrossDistribution")
+	private WebElement GrossDistribution_Box1;
+	
+	@FindBy (id = "txtTaxableAmount")
+	private WebElement Taxable_amount_Box2a;
+	
+	@FindBy (id = "ColumnsFormDetails_4__BoolValue")
+	private WebElement Taxable_amount_not_determined_Box2b;
+	
+	@FindBy (id = "ColumnsFormDetails_5__BoolValue")
+	private WebElement Total_distribution;
+	
+	@FindBy (id = "txtCapitalGain")
+	private WebElement Capital_gain_Box3;
+	
+	@FindBy (id = "txtEmployeeContributions")
+	private WebElement Employee_contributions_Designated_Roth_contributions_or_insurance_premiums_Box5;
+	
+	@FindBy (id = "txtNetAppreciation")
+	private WebElement Net_unrealized_appreciation_in_employers_securities_Box6;
+	
+	@FindBy (id = "ddlDistributionCodes")
+	private WebElement Distribution_codes_Box7;
+	
+	@FindBy (id = "ColumnsFormDetails_11__BoolValue")
+	private WebElement IRA_SEP_SIMPLE;
+	
+	@FindBy (id = "txtOther")
+	private WebElement Other_Box8;
+	
+	@FindBy (id = "txtOtherPercentage")
+	private WebElement Other_Box8_percentage;
+	
+	@FindBy (id = "txtTotalDistributionPercentage")
+	private WebElement Your_percentage_of_total_distribution_Box9a;
+	
+	@FindBy (id = "txtTotalEmployeeContributions")
+	private WebElement Total_employee_contributions_Box9b;
+	
+	@FindBy (id = "txtIRRAmount")
+	private WebElement Amount_allocable_to_IRR_within_5years_Box10;
+	
+	@FindBy (id = "txtFstYrRothContrib")
+	private WebElement _1st_year_of_desig_Roth_contrib_Box11;
+	
+	@FindBy (id = "ColumnsFormDetails_18__BoolValue")
+	private WebElement Do_you_have_a_FATCA_Filing_Requirement_Box12;
+	
+	@FindBy (id = "txtPaymentDate")
+	private WebElement Date_of_payment_Box13;
+	
+	@FindBy (id = "txtPrimStateDistribution")
+	private WebElement State_distribution_Box16;
+	
+	@FindBy (id = "txtPrimLocalTaxWithheld")
+	private WebElement Local_Tax_Withheld_Box17;
+	
+	@FindBy (id = "txtPrimLocalityName")
+	private WebElement Name_of_locality_Box18;
+	
+	@FindBy (id = "txtPrimLocalDistribution")
+	private WebElement Local_distribution_Box19;
+	
+	@FindBy (id = "txtScndStateDistribution")
+	private WebElement State_distribution_Box16a;
+	
+	@FindBy (id = "txtScndLocalTaxWithheld")
+	private WebElement Local_Tax_Withheld_Box17a;
+	
+	@FindBy (id = "txtScndLocalityName")
+	private WebElement Name_of_locality_Box18a;
+	
+	@FindBy (id = "txtScndLocalDistribution")
+	private WebElement Local_distribution_Box19a;
 	
 	static String fname;
 
@@ -1428,6 +1532,105 @@ public class FireForms_RecipientInformationPage extends PageProperties {
 		Specified_Coop_Box13.click();
 		
 		saveButton.click();
+		
+	}
+
+	public void Form_1099_Q_FilerInformation(String _accountNo, String _officecode, String _box1, String _box2,
+			String _box3, String _FMV) {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(_officecode);
+		
+		Gross_distribution_Box1.sendKeys(_box1);
+		Earnings_Box2.sendKeys(_box2);
+		Basis_Box3.sendKeys(_box3);
+		Trustee_to_trustee_transfer_Box4.click();
+		Qualified_tuition_program_Box5_Private.click();
+		Check_if_the_recipient_is_not_the_designated_beneficiary_Box6.click();
+		fair_market_value_FMV.sendKeys(_FMV);
+		
+		saveButton.click();
+		
+	}
+
+	public void Form_1099_R_FilerInformation(String _accountNo, String _officecode, String _box1, String _box2a,
+			String _box3, String _box4, String _box5, String _box6, String _box7, String _box8, String _box8_per, 
+			String _box9a, String _box9b, String _box10, String _box11, String _year, String _month, String _date, 
+			String _stateTaxWitheld, String _state, String _statePayersNumn, String _box16, String _box17, String _box18, 
+			String _box19, String _stateTaxWitheld_1, String _state_1, String _statePayersNumn_1, String _box16a, 
+			String _box17a, String _box18a, String _box19a) throws InterruptedException {
+		
+		// Scroll Down to Label Name
+		js.executeScript("arguments[0].scrollIntoView(true);", FilerInfoLabelName);
+
+		accountNo.sendKeys(_accountNo);
+		officeCode.sendKeys(_officecode);
+		
+		GrossDistribution_Box1.sendKeys(_box1);
+		Taxable_amount_Box2a.sendKeys(_box2a);
+		Taxable_amount_not_determined_Box2b.click();
+		Total_distribution.click();
+		Capital_gain_Box3.sendKeys(_box3);
+		Federal_Income_Tax_Withheld_Box4.sendKeys(_box4);
+		Employee_contributions_Designated_Roth_contributions_or_insurance_premiums_Box5.sendKeys(_box5);
+		Net_unrealized_appreciation_in_employers_securities_Box6.sendKeys(_box6);
+		
+		dropdown = new Select(Distribution_codes_Box7);
+		dropdown.selectByVisibleText(_box7);
+		IRA_SEP_SIMPLE.click();
+		Other_Box8.sendKeys(_box8);
+		Other_Box8_percentage.sendKeys(_box8_per);
+		Your_percentage_of_total_distribution_Box9a.sendKeys(_box9a);
+		Total_employee_contributions_Box9b.sendKeys(_box9b);
+		Amount_allocable_to_IRR_within_5years_Box10.sendKeys(_box10);
+		_1st_year_of_desig_Roth_contrib_Box11.sendKeys(_box11);
+		Do_you_have_a_FATCA_Filing_Requirement_Box12.click();
+		
+		Date_of_payment_Box13.click();
+		
+		dropdown = new Select(Select_year);
+		dropdown.selectByVisibleText(_year);
+		
+		dropdown = new Select(Select_month);
+		dropdown.selectByVisibleText(_month);
+		
+		for (WebElement date : pick_date) {
+			
+			if (date.getText().equalsIgnoreCase(_date)) {
+				
+				date.click();
+				break;
+			}
+			
+		}
+			
+		Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		StateTax_Withheld.sendKeys(_stateTaxWitheld);
+		dropdown = new Select(State);
+		dropdown.selectByVisibleText(_state);
+		State_Identification_No.sendKeys(_statePayersNumn);
+		State_distribution_Box16.sendKeys(_box16);
+		Local_Tax_Withheld_Box17.sendKeys(_box17);
+		Name_of_locality_Box18.sendKeys(_box18);
+		Local_distribution_Box19.sendKeys(_box19);
+
+		Another_Combined_Federal_State_return_chck.click();
+		Thread.sleep(1000);
+		StateTax_Withheld_Box.sendKeys(_stateTaxWitheld_1);
+		dropdown = new Select(state_Box);
+		dropdown.selectByVisibleText(_state_1);
+		State_Identification_No_Box.sendKeys(_statePayersNumn_1);
+		State_distribution_Box16a.sendKeys(_box16a);
+		Local_Tax_Withheld_Box17a.sendKeys(_box17a);
+		Name_of_locality_Box18a.sendKeys(_box18a);
+		Local_distribution_Box19a.sendKeys(_box19a);
+
+		saveButton.click();
+		
 		
 	}
 

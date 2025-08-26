@@ -629,7 +629,7 @@ public class FireForms_1099_1098 extends BaseProperties {
 		}
 
 	}
-	
+
 	@Test
 	public void Form_1099NEC() throws InterruptedException {
 
@@ -657,8 +657,64 @@ public class FireForms_1099_1098 extends BaseProperties {
 		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
 				"Virginia", "Colombia", "VA34556");
 
-		recipientListPage.RecipientInfoPage.Form_1099_NEC_FilerInformation("DRgVnJVWJV", "RT24", "100", "24","California", "123456789",
-				"160", "222", "Maine", "987654321", "161", "333");
+		recipientListPage.RecipientInfoPage.Form_1099_NEC_FilerInformation("DRgVnJVWJV", "RT24", "100", "24",
+				"California", "123456789", "160", "222", "Maine", "987654321", "161", "333");
+
+		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
+
+		FilingFeePage filingFeePage = reviewPage.ClickSaveButton();
+
+		// With Skip Payment Flow
+		if (runLevel == RunLevel.REVIEW) {
+
+			filingFeePage.ContinueWithoutPayment();
+
+		}
+
+		// Without Skip Payment Flow
+		else if (runLevel == RunLevel.FILINGFEE) {
+
+			filingFeePage.PMSDetails()
+					.CreditCardInfo("YT Tech", "American Express", "1234567890123456", "Jan", "2034", "2353")
+					.BillingInfo("YT User");
+
+			OrderConfirmationPage orderconfirmPage = filingFeePage.ClickPayNow();
+
+			orderconfirmPage.CheckOrderIsConfirmed();
+		}
+
+	}
+
+	@Test
+	public void Form_1099OID() throws InterruptedException {
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
+				"Test@123");
+
+		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
+
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-OID", "2024");
+
+		payerListPage.click_AddPayerInfoButton();
+
+		payerListPage.PayerInfoPage.ProvidePayerInformation("Corporation", ProfileName, "123456789");
+
+		payerListPage = payerListPage.PayerInfoPage.ProvidePayerAddressInformation("Within U.S", "1008 W MAIN ST",
+				"SALEM", "null", "Virginia", "24153", "8823792231");
+
+		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
+
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "OID", "123456789", ProfileName,
+				"arunachelam@gmail.com", "arunachelam@gmail.com");
+
+		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
+				"Virginia", "Colombia", "VA34556");
+
+		recipientListPage.RecipientInfoPage.Form_1099_OID_FilerInformation("nbTqXSKaCe", "1234", "100", "200", "300",
+				"400", "500", "600", "Description Box 7", "800", "900", "1000", "1100", "Arkansas", "123456789012345",
+				"222", "Maine", "543210987654321", "333");
 
 		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
 
@@ -712,8 +768,8 @@ public class FireForms_1099_1098 extends BaseProperties {
 		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
 				"Virginia", "Colombia", "VA34556");
 
-		recipientListPage.RecipientInfoPage.Form_1099_PATR_FilerInformation("DRgVnJVWJV", "RT24", "100", "200","32", "199.68",
-				"500", "600", "700", "800", "900", "1000", "1100", "1200");
+		recipientListPage.RecipientInfoPage.Form_1099_PATR_FilerInformation("DRgVnJVWJV", "RT24", "100", "200", "32",
+				"199.68", "500", "600", "700", "800", "900", "1000", "1100", "1200");
 
 		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
 
@@ -739,9 +795,9 @@ public class FireForms_1099_1098 extends BaseProperties {
 		}
 
 	}
-	
+
 	@Test
-	public void Form_1099OID() throws InterruptedException {
+	public void Form_1099Q() throws InterruptedException {
 
 		LoginPage loginPage = new LoginPage(driver);
 
@@ -750,7 +806,7 @@ public class FireForms_1099_1098 extends BaseProperties {
 
 		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
 
-		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-OID", "2024");
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-Q", "2024");
 
 		payerListPage.click_AddPayerInfoButton();
 
@@ -761,15 +817,71 @@ public class FireForms_1099_1098 extends BaseProperties {
 
 		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
 
-		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "OID", "123456789", ProfileName,
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "Q", "123456789", ProfileName,
 				"arunachelam@gmail.com", "arunachelam@gmail.com");
 
 		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
 				"Virginia", "Colombia", "VA34556");
 
-		recipientListPage.RecipientInfoPage.Form_1099_OID_FilerInformation("nbTqXSKaCe", "1234", "100", "200", "300",
-				"400", "500", "600", "Description Box 7", "800", "900", "1000", "1100", "Arkansas", "123456789012345",
-				"222", "Maine", "543210987654321", "333");
+		recipientListPage.RecipientInfoPage.Form_1099_Q_FilerInformation("DRgVnJVWJV", "RT24", "100", "200", "300",
+				"1723 GOSNELL RD");
+
+		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
+
+		FilingFeePage filingFeePage = reviewPage.ClickSaveButton();
+
+		// With Skip Payment Flow
+		if (runLevel == RunLevel.REVIEW) {
+
+			filingFeePage.ContinueWithoutPayment();
+
+		}
+
+		// Without Skip Payment Flow
+		else if (runLevel == RunLevel.FILINGFEE) {
+
+			filingFeePage.PMSDetails()
+					.CreditCardInfo("YT Tech", "American Express", "1234567890123456", "Jan", "2034", "2353")
+					.BillingInfo("YT User");
+
+			OrderConfirmationPage orderconfirmPage = filingFeePage.ClickPayNow();
+
+			orderconfirmPage.CheckOrderIsConfirmed();
+		}
+
+	}
+
+	@Test
+	public void Form_1099R() throws InterruptedException {
+
+		LoginPage loginPage = new LoginPage(driver);
+
+		DashboardPage dashboardPage = loginPage.FillUserCredentials("arunachelaeswarans@yakshnatechnologies.in",
+				"Test@123");
+
+		FireForm1099_ServicesPage _1099ServicePage = dashboardPage.Click_FORM1099();
+
+		FireForms_PayerListPage payerListPage = _1099ServicePage.StartE_filing("Form 1099-R", "2024");
+
+		payerListPage.click_AddPayerInfoButton();
+
+		payerListPage.PayerInfoPage.ProvidePayerInformation("Corporation", ProfileName, "123456789");
+
+		payerListPage = payerListPage.PayerInfoPage.ProvidePayerAddressInformation("Within U.S", "1008 W MAIN ST",
+				"SALEM", "null", "Virginia", "24153", "8823792231");
+
+		FireForms_RecipientListPage recipientListPage = payerListPage.SelectProfileAndStartE_Filing();
+
+		recipientListPage.AddRecipient().RecipientInfoPage.RecipientInformation("EIN", "R", "123456789", ProfileName,
+				"arunachelam@gmail.com", "arunachelam@gmail.com");
+
+		recipientListPage.RecipientInfoPage.RecipientAddressInformation("Outside U.S", "1723 GOSNELL RD", "VIENNA",
+				"Virginia", "Colombia", "VA34556");
+
+		recipientListPage.RecipientInfoPage.Form_1099_R_FilerInformation("DRgVnJVWJV", "RT24", "100", "99", "98",
+				"190.80", "500", "97", "1K", "800", "5", "6", "900", "1000", "1999", "2025", "Aug", "14", "423164",
+				"California", "486466449", "496", "4949", "1723 GOSNELL RD", "4994", "784", "Colorado", "648378433",
+				"154", "494", "1723 GOSNELL RD", "79697676");
 
 		ReviewPage reviewPage = recipientListPage.SelectRecipientsAndStartFiling();
 
